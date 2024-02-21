@@ -1,0 +1,31 @@
+.imgHTML5{
+    transition: left 4s;
+    position: relative;
+    left: 0px
+}
+.imgHTML5:hover{
+    position: relative;
+    left: 300px;
+}
+
+@keyframes anim{
+    0% {color:red;}
+    25%{color: blue;}
+    75%{color: green;}
+    100%{color: yellow;}
+}
+
+.mainPara{
+    /* animation-name: anim;
+    animation-duration: 4s; */
+    animation :anim 4s infinite
+}
+
+body{
+    background-image:url(https://static.vecteezy.com/system/resources/previews/000/261/099/original/vector-abstract-colorful-watercolor-decorative-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+header{
+    float: right;
+}

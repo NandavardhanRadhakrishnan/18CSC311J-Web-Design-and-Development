@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>HTML5</title>
+        <link rel="stylesheet" href = "style.css">
+    </head>
+    <body>
+	<header>
+		<p>this is a header</p>
+	</header>
+        <section>
+        <figure>
+		<img class = "imgHTML5" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/800px-HTML5_logo_and_wordmark.svg.png" alt = "HTML 5" style="height:100">
+		<figcaption> Fig.1 - HTML 5</figcaption>
+	</figure>
+        <article class="mainPara">HTML5 (Hypertext Markup Language 5) is a markup language used for structuring and presenting content on the World Wide Web. It is the fifth and final[3] major HTML version that is a World Wide Web Consortium (W3C) recommendation. The current specification is known as the HTML Living Standard. It is maintained by the <aside>Web Hypertext Application Technology Working Group WHATWG, a consortium of the major browser vendors (Apple, Google, Mozilla, and Microsoft).</article>
+	<aside>
+		<h4> WHATWG </h4>
+		<p>The Web Hypertext Application Technology Working Group is a community of people interested in evolving HTML and related technologies.</p>
+	</aside>
+	<details>
+	<summary>WHATWG</summary>
+	<p>The Web Hypertext Application Technology Working Group is a community of people interested in evolving HTML and related technologies</p>
+	</details>
+	<nav>
+		<a href = "https://en.wikipedia.org/wiki/HTML">HTML</a><br>
+		<a href = "https://en.wikipedia.org/wiki/CSS">CSS</a><br>
+		<a href = "https://en.wikipedia.org/wiki/JavaScript">JS</a><br>
+	</nav>
+        </section>
+	<br>
+	<h3 style="font-family: sans-serif; border-style:solid ; border-radius: 2px; display: inline;"> Form </h3><br>
+        <div>
+        <form>
+            First name:<input type="text" name="firstname" placeholder = "First Name" required><br>
+            Last name:<input type="text" name="lastname" placeholder = "Last Name" required><br>
+            Mail id:<input type="email" name="mailid" required><br>
+            Phone No:<input type="tel" name="phno" pattern = "[0-9]{10}" placeholder = "XXXXXXXXXX" required><br>
+            Date Of Birth:<input type="date" name="dob" required><br>
+            Qualification:<input list="qualification" required><br>
+            <datalist id="qualification">
+                <option value="BSc">BSc</option>
+                <option value="BTech">BTech</option>
+                <option value="MTech">MTech</option>
+            </datalist>
+            Resume:<input type="file" name="resume"><br>
+            <input type="submit" value="Submit">
+        </form>
+        </div>
+	<footer>
+		<p>this is a footer</p>
+	</footer>
+    </body>
+</html>
