@@ -1,0 +1,88 @@
+<html>
+    <head><title>Survey Form</title></head>
+    <body>
+        <style>
+            *{
+                
+            }
+            .heading{
+                position: relative;
+                width: 375px;
+                left: 40%;
+                padding: 10px;
+                border-style: solid;
+                border-radius: 10px;
+                display: flexbox;
+                text-align: center;
+                font-family: sans-serif;
+                font-size: medium;
+                background-image: url(https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .formBody{
+                position: relative;
+                padding: 10px;
+                width: 375px;
+                left: 40%;
+                border-style: solid;
+                border-radius: 10px;
+                font-family: sans-serif;
+                background-image: url(https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .I1{
+                width: 350px;
+            }
+            .L1{
+                background-color: black;
+            }
+        </style>
+        <div class="heading">
+            <h1>Survey Form</h1>
+            <h4>Thank you for taking your time to help us improve</h4>
+        </div>
+        <br>
+        <div class="formBody">
+            <form>
+                <label>🧑</label class="L1"><input type="text" placeholder="Username" required class="I1"><br>
+                <label>✉️</label class="L1"><input type="email" placeholder="Email" required class="I1"><br>
+                <label>📅</label class="L1"><input type="date" placeholder="Date of Birth" required class="I1"><br>
+                <br>
+                <label>Gender:</label><br>
+                <datalist id="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </datalist>
+                <!-- <input type="radio" list="Gender"><label>Male</label><br> -->
+                <!-- <input type="radio" list="Gender"><label>Female</label><br> -->
+                <!-- <input type="radio" list="Gender"><label>Other</label><br> -->
+                <input list="Gender">
+                <datalist id="Role">
+                    <option value="Student">Student</option>
+                    <option value="Professional">Professional</option>
+                    <option value="Fresher">Fresher</option>
+                </datalist>
+                <br>
+                <label>What option describes your current role</label>
+                <input  list="Role"><br>
+                <label>What are your top skills ?</label><br>
+                <input type="checkbox">Communication</input><br>
+                <input type="checkbox">Curiosity</input><br>
+                <input type="checkbox">Passion</input><br>
+                <input type="checkbox">Operations</input><br>
+                <input type="checkbox">Problem Solving</input><br>
+                <input type="checkbox">Evolving</input><br>
+                <input type="checkbox">IT skills</input><br>
+                <input type="checkbox">Leadeship</input><br>
+                <br>
+                <label>Any Comments on application ?</label><br>
+                <input type="textblock" style="width: 350px;">
+                <br>
+                <input type="submit">
+            </form>
+        </div>
+    </body>
+</html>
