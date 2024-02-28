@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<title>Salary Calculator</title>
+<link rel="stylesheet" href="style.css">   
+</head>
+<body>
+<div class="container">
+    <h2>Employee Salary Information</h2>
+    <form id="salaryForm">
+        <label for="employeeName">Employee Name:</label>
+        <input type="text" id="employeeName" required>
+        
+        <label for="employeeID">Employee ID:</label>
+        <input type="text" id="employeeID" required>
+        
+        <label for="basicPay">Basic Pay:</label>
+        <input type="number" id="basicPay" required>
+        
+        <button type="button" onclick="calculateSalary()">Calculate Salary</button>
+    </form>
+
+    <div id="salaryDetails"></div>
+</div>
+
+<script>
+function calculateSalary() {
+    const employeeName = document.getElementById("employeeName").value;
+    const employeeID = document.getElementById("employeeID").value;
+    const basicPay = parseFloat(document.getElementById("basicPay").value);
+
+    const DA = 0.1 * basicPay;
+    const HRA = 0.2 * basicPay;
+    const PF = 0.05 * basicPay;
+    const TAX = 0.1 * basicPay;
+    const grossPay = basicPay + DA + HRA;
+    const deductions = PF + TAX;
+    const netPay = grossPay - deductions;
+
+    const salaryDetails = `
+        <h2>Salary Details for ${employeeName} (Employee ID: ${employeeID})</h2>
+        <table>
+            <tr>
+                <th>Component</th>
+                <th>Amount (in $)</th>
+            </tr>
+            <tr>
+                <td>Basic Pay</td>
+                <td>${basicPay.toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td>DA</td>
+                <td>${DA.toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td>HRA</td>
+                <td>${HRA.toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td>PF</td>
+                <td>${PF.toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td>TAX</td>
+                <td>${TAX.toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td><strong>Gross Pay</strong></td>
+                <td><strong>${grossPay.toFixed(2)}</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Deductions</strong></td>
+                <td><strong>${deductions.toFixed(2)}</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Net Pay</strong></td>
+                <td><strong>${netPay.toFixed(2)}</strong></td>
+            </tr>
+        </table>
+    `;
+
+    document.getElementById("salaryDetails").innerHTML = salaryDetails;
+}
+</script>
+</body>
+</html>
