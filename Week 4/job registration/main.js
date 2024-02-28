@@ -15,9 +15,5 @@ function validate(){
     }
     if(! /^\d{10}$/.test(empPhone)){
         alert("Phone number not valid enter 10 digits only")
-    }
-    else{
-        alert("Form Valid")
-    }
-
+    }    
 }
