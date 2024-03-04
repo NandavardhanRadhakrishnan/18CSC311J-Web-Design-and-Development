@@ -1,0 +1,48 @@
+body{
+    font-family: sans-serif;
+}
+
+.container{
+    width: 600px;
+    margin: 20px auto;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: darkgray;
+}
+
+h2{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+}
+
+input{
+    width: 300px;
+    height: 50px;
+}
+
+label{
+    display: inline-block;
+    width: 100px;
+}
+button{
+    height: 50px;
+    width: 150px;
+    margin: 10px auto;
+
+}
+span.error{
+    padding-left: 100px;
+    color: red;
+}
+
+span.success{
+    text-align: center;
+    color: greenyellow;
+}

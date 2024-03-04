@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Login page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="style.css">   
+    </head>
+    <body ng-app = "loginPage">
+        <div class="container" ng-controller="loginController">
+            <h2>Login page</h2>
+            <form>
+                <div>
+                    <label for="nameForm">Name:</label>
+                    <input type="text" id="nameForm" ng-model="name">
+                </div>
+                <span class="error">{{nameErrorMsg}}</span>
+                <div>
+                    <label for="usernameForm">Username:</label>
+                    <input type="text" id="usernameForm" ng-model="email">
+                </div>
+                <span class="error">{{emailErrorMsg}}</span>
+                <div>
+                    <label for="passwordForm">Password:</label>
+                    <input type="password" id="passwordForm" ng-model="password">
+                </div>
+                <span class="error">{{passwordErrorMsg}}</span>
+                <button ng-click="submitForm()">Submit</button>
+                <span class="success">{{successMsg}}</span>
+            </form>
+        </div>
+    </body>
+</html>
