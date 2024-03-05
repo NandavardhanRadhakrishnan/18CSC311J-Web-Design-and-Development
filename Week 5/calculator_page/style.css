@@ -1,0 +1,36 @@
+body {
+  width: 800px;
+  margin: 10px auto;
+  border: 1px solid #000000;
+  font-family: sans-serif;
+}
+
+.row--2 {
+  margin: 20px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+.operations {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.op-1,
+.op-2,
+.op-3,
+.op-4 {
+  flex: 1;
+  font-size: 40px;
+  background-color: #ffa600;
+  border: 1px solid #000000;
+  height: 50px;
+  border-radius: 25px;
+}
+
+input[type="number"] {
+  height: 50px;
+  width: 600px;
+}
