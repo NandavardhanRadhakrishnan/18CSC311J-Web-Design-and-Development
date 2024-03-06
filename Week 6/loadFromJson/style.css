@@ -7,3 +7,6 @@
     border-radius: 20px;
     border-style: solid;
 }
+table,td{
+    border: 1px solid;
+}
