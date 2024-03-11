@@ -1,0 +1,13 @@
+*{
+    font-family: sans-serif;
+}
+.container{
+    width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 20px;
+    border-style: solid;
+}
+table,td{
+    border: 1px solid;
+}
