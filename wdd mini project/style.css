@@ -1,0 +1,44 @@
+.container{
+    width: 95%px;
+    height: 95%;
+    margin: 20px auto;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: darkgray;
+    background-color: rebeccapurple;
+    font-family: sans-serif;
+}
+
+#userList{
+    width: 30%;
+    height: 100%;
+    background-color: darkgray;
+    float: left;
+    overflow-y: scroll
+}
+
+#chatDisp{
+    width: 70%;
+    height: 100%;
+    background-color: green;
+    float: left;
+}
+
+.userDisp{
+    font-size: large;
+    margin: 5px 5px 10px 5px;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+}
+
+.userDisp img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
