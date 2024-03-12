@@ -41,4 +41,26 @@
     height: 50px;
     border-radius: 50%;
     margin-right: 20px;
+} 
+
+#textBox{
+    height: 50px;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+#textBox input{
+    height: 50px;
+    border-radius: 25px;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+#textBox button{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    font-size: larger;
 }
