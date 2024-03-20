@@ -9,3 +9,12 @@ myApp.controller('userListCtrl',function($scope){
     };
 }
 );
+
+myApp.controller('chatDispCtrl',function($scope){
+    $scope.messages = [
+        {text:"hello",from:"user"},
+        {text:"hello",from:"us"},
+
+    ];
+}
+);

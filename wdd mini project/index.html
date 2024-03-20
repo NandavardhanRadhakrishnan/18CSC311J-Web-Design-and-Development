@@ -12,7 +12,12 @@
                     <span>{{user.name}}</span>
                 </div>
             </div>
-            <div id = "chatDisp">
+            <div id = "chatDisp" ng-controller="chatDispCtrl">
+                <div>
+                    <div ng-repeat="message in messages" ng-class="{'user-msg':message.from ==='user', 'recipent-msg':message.from != 'user'}">
+                        <span>{{message.text}}</span>
+                    </div>
+                </div>
                 <div id="textbox">
                     <input type="text" id="userMsgTextbox">
                     <button id="userMsgButton">></button>

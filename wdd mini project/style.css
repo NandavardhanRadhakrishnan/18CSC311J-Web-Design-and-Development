@@ -64,3 +64,20 @@
     border-radius: 25px;
     font-size: larger;
 }
+
+#chatDisp{
+    max-width: 50%;
+    background-color: bisque;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+}
+
+#chatDisp.user-msg{
+    float: right;
+}
+
+#chatDisp.recipent-msg{
+    float:left;
+    background-color: rebeccapurple;
+}
