@@ -1,4 +1,36 @@
-var app = angular.module('myApp', []);
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function ($routeProvider) {
+	$routeProvider
+		.when("/", {
+			templateUrl: "main.html"
+		})
+		.when("/calc", {
+			templateUrl: "calculator_page/index.html",
+			controller: "calcController",
+		})
+		.when("/login", {
+			templateUrl: "login_page/index.html"
+		});
+});
+
+app.controller("calcController", function ($scope) {
+	$scope.calculate = function (op) {
+		switch (op) {
+			case "+":
+				$scope.result = parseFloat($scope.num1) + parseFloat($scope.num2);
+				break;
+			case "-":
+				$scope.result = parseFloat($scope.num1) - parseFloat($scope.num2);
+				break;
+			case "*":
+				$scope.result = parseFloat($scope.num1) * parseFloat($scope.num2);
+				break;
+			case "/":
+				$scope.result = parseFloat($scope.num1) / parseFloat($scope.num2);
+				break;
+		}
+	};
+});
 
 app.controller('loginController', function ($scope) {
 

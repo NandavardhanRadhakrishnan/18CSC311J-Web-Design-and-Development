@@ -1,30 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myapp">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"/></script>
-    <title>Calculator</title>
-  </head>
-  <body ng-controller="myctrl">
-    <div class="row--2">
-      <div>
-        <label for="num1">Number 1:</label>
-        <input type="number" required ng-model="num1" />
-      </div>
-      <div>
-        <label for="num2">Number 2:</label>
-        <input type="number" required ng-model="num2" />
-      </div>
-      <div class="operations">
-        <input class="op-1" type="button" value="+" ng-click="calculate('+')" />
-        <input class="op-2" type="button" value="-" ng-click="calculate('-')" />
-        <input class="op-3" type="button" value="*" ng-click="calculate('*')" />
-        <input class="op-4" type="button" value="/" ng-click="calculate('/')" />
-      </div>
-        <h1>Result: {{result}}</h1>
-    </div>
-    <script src="script.js" />
-  </body>
+<html lang="en" ng-app="myApp">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js" />
+	</script>
+	<title>Calculator</title>
+</head>
+
+<body ng-controller="calcController">
+	<div class="row--2">
+		<div>
+			<label for="num1">Number 1:</label>
+			<input type="number" required ng-model="num1" />
+		</div>
+		<div>
+			<label for="num2">Number 2:</label>
+			<input type="number" required ng-model="num2" />
+		</div>
+		<div class="operations">
+			<input class="op-1" type="button" value="+" ng-click="calculate('+')" />
+			<input class="op-2" type="button" value="-" ng-click="calculate('-')" />
+			<input class="op-3" type="button" value="*" ng-click="calculate('*')" />
+			<input class="op-4" type="button" value="/" ng-click="calculate('/')" />
+		</div>
+		<h1>Result: {{result}}</h1>
+	</div>
+	<script src="script.js" />
+</body>
+
 </html>
