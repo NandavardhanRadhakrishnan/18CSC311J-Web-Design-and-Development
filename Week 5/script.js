@@ -9,7 +9,8 @@ app.config(function ($routeProvider) {
 			controller: "calcController",
 		})
 		.when("/login", {
-			templateUrl: "login_page/index.html"
+			templateUrl: "login_page/index.html",
+			controller: "loginController"
 		});
 });
 
