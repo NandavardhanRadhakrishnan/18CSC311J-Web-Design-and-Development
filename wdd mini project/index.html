@@ -13,9 +13,11 @@
                 </div>
             </div>
             <div id = "chatDisp" ng-controller="chatDispCtrl">
-                <div>
-                    <div ng-repeat="message in messages" ng-class="{'user-msg':message.from ==='user', 'recipent-msg':message.from != 'user'}">
-                        <span>{{message.text}}</span>
+                <div style="height: 100%; overflow-y: scroll;">
+                    <div ng-repeat="message in messages">
+                        <div style="display: flex; flex-direction: column;">
+                            <span id = "chatMsg" ng-class="message.direction">{{message.text}}</span>
+                        </div>
                     </div>
                 </div>
                 <div id="textbox">

@@ -18,13 +18,6 @@
     overflow-y: scroll
 }
 
-#chatDisp{
-    width: 70%;
-    height: 100%;
-    background-color: green;
-    float: left;
-}
-
 .userDisp{
     font-size: large;
     margin: 5px 5px 10px 5px;
@@ -66,18 +59,27 @@
 }
 
 #chatDisp{
-    max-width: 50%;
+    width: 70%;
+    height: 100%;
     background-color: bisque;
-    border-radius: 10px;
-    margin: 5px;
-    padding: 5px;
+    /* float: left; */
+    display: flex;
+    flex-direction: column;
 }
 
-#chatDisp.user-msg{
-    float: right;
+#chatMsg{
+    border: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 10px 5px;
+    max-width: 40%;
 }
 
-#chatDisp.recipent-msg{
-    float:left;
-    background-color: rebeccapurple;
+.user-msg{
+    margin: 5px 5px 5px auto ;
+
+}
+
+.recipent-msg{
+    margin: 5px auto 5px 5px;
 }

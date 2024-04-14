@@ -12,9 +12,8 @@ myApp.controller('userListCtrl',function($scope){
 
 myApp.controller('chatDispCtrl',function($scope){
     $scope.messages = [
-        {text:"hello",from:"user"},
-        {text:"hello",from:"us"},
-
+        {text:"hello a",from:"user",direction:"user-msg"},
+        {text:"hello b",from:"us",direction:"recipent-msg"},
     ];
 }
 );
