@@ -5,14 +5,18 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body ng-app = "myApp">
-        <div class="container">
-            <div id="userList" ng-controller="userListCtrl">
-                <div class="userDisp" ng-repeat = "user in users">
-                    <img ng-src="{{user.avatar}}"
-                    <span>{{user.name}}</span>
+        <div class="container" ng-controller="myCtrl">
+            <div id="userList">
+                <div>{{curr}}</div>
+                <div ng-repeat = "user in users"  ng-click="changeUser(user.name)">           
+                    <div class="userDisp" >
+                        <img ng-src="{{user.avatar}}">
+                        <span>{{user.name}}</span>
+                    </div>
+                    <hr>
                 </div>
             </div>
-            <div id = "chatDisp" ng-controller="chatDispCtrl">
+            <div id = "chatDisp">
                 <div style="height: 100%; overflow-y: scroll;">
                     <div ng-repeat="message in messages">
                         <div style="display: flex; flex-direction: column;">
