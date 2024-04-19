@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
 const User = require('./models/user');
 const app = express();
 
@@ -29,7 +30,7 @@ app.post('/api/register', async (req, res) => {
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Server error' });
+    res.status(500).json({ error: 'Server error' });  
   }
 });
 
@@ -41,7 +42,8 @@ app.post('/api/login', async (req, res) => {
     if (!user) {
       return res.status(401).json({ error: 'Invalid username or password' });
     }
-    res.json({ message: 'Login successful' });
+    const token = jwt.sign({ userId: user._id }, 'your_secret_key', { expiresIn: '1h' });
+    res.json({ message: 'Login successful', token, user });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Server error' });
@@ -55,11 +57,14 @@ app.get('/chat', (req, res) => {
 
 app.use(express.static(__dirname+'/public'));
 
-// app.route('/*').get(
-//   (req,res) => {
-//     res.sendFile(path.resolve(__dirname+'/public/index.html'));
-//   }
-// )
+app.route('/*').get(
+  (req,res) => {
+    res.sendFile(path.resolve(__dirname+'/public/index.html'));
+  }
+)
+
+
+
 
 // Start server
 const port = process.env.PORT || 3000;

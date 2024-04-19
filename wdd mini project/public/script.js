@@ -1,10 +1,19 @@
-myApp = angular.module('myApp',["ngRoute"]);
+var myApp = angular.module("myApp",["ngRoute"]);
 
-myApp.config(function($routeProvider){
+// TODO login path not working need to add .html at end, also page doesnt refresh automatically when routing need to refresh manually
+
+myApp.config(function($routeProvider,$locationProvider){
     $routeProvider
-    .when('/',{
-        templateUrl: "index.html",
-        controller: "chatController"
+    .when("/",{
+        templateUrl: "public/indexx.html",
+        controller: "chatController",
+        resolve:{
+            auth:function($location,AuthService){
+                if(!AuthService.isAuthenticated()){
+                    $location.path('/login');
+                }
+            }
+        }
     })
     .when('/login',{
         templateUrl: "login.html",
@@ -14,15 +23,48 @@ myApp.config(function($routeProvider){
         templateUrl: "register.html",
         controller: "registerCtrl"
     })
-    .when('/chat',{
-        templateUrl: "chat.html",
-        controller: "chatCtrl"
-    })
-    .otherwise({
-        redirectTo: '/'
-    });
+    // .otherwise({
+    //     redirectTo: '/'
+    // });
+
+    $locationProvider.html5Mode(true);
 });
-myApp.controller('chatCtrl',function($scope,$routeParams){
+
+myApp.service('AuthService',function($http, $q, $window){
+
+    this.login = function(username, password) {
+        var deferred = $q.defer();
+        $http.post('/api/login', { username: username, password: password })
+          .then(function(response) {
+            // Set current user and token in localStorage
+            $window.localStorage.setItem('currentUser', JSON.stringify(response.data.user));
+            $window.localStorage.setItem('token', response.data.token);
+            deferred.resolve(response.data.user);
+          })
+          .catch(function(error) {
+            deferred.reject(error);
+          });
+        return deferred.promise;
+      };
+  
+      this.logout = function() {
+        // Clear current user and token from localStorage
+        $window.localStorage.removeItem('currentUser');
+        $window.localStorage.removeItem('token');
+      };
+  
+      this.isAuthenticated = function() {
+        // Check if token exists in localStorage
+        return !!$window.localStorage.getItem('token');
+      };
+  
+      this.getCurrentUser = function() {
+        // Retrieve current user from localStorage
+        return JSON.parse($window.localStorage.getItem('currentUser'));
+      };
+});
+
+myApp.controller('chatCtrl',function($scope,AuthService){
     $scope.users=[
         {name:"User 1",avatar:"https://source.unsplash.com/random/200x200?sig=1"},
     ];
@@ -38,24 +80,21 @@ myApp.controller('chatCtrl',function($scope,$routeParams){
         $scope.curr = '';
         $scope.messages.push({text:userName,from:"user",direction:"user-msg"});
     };
-    $scope.u = $routeParams.username;
+    $scope.u = "not logged in";
+    // $scope.u = AuthService.getCurrentUser().username;
 });
 
-myApp.controller('loginCtrl', function($scope, $http, $window) {
-    $scope.error = '';
-
-    $scope.login = function() {
-        $http.post('/api/login', { username: $scope.username, password: $scope.password })
-            .then(function(response) {
-                // Successful login
-                alert(response.data.message);
-                $window.location.href = '/chat?username=' + $scope.username;
-                // Redirect to another page or perform any other action after successful login
-            })
-            .catch(function(error) {
-                // Failed login
-                $scope.error = error.data.error;
-            });
+myApp.controller('loginCtrl', function($scope, $location, AuthService) {
+    $scope.login = function(username,password) {
+      AuthService.login(username, password)
+        .then(function(user) {
+          // Redirect to index after successful login
+          $location.path('/index');
+        })
+        .catch(function(error) {
+          console.error(error);
+          // Handle login error
+        });
     };
 });
 
@@ -76,3 +115,5 @@ myApp.controller('registerCtrl', function($scope, $http) {
             });
     };
 });
+
+myApp.controller("myCtrl",function($scope){});

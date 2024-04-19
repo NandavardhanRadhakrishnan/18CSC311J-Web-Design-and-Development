@@ -2,14 +2,15 @@
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
     <script src="script.js"></script>
+    <base href="/">
     <link rel="stylesheet" href="style.css">
 </head>
 <body ng-app="myApp" ng-controller="loginCtrl">
     <div class="container">
         <h2>Login</h2>
-        <form ng-submit="login()">
+        <form ng-submit="login(username,password)">
             <div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" ng-model="username" required>
