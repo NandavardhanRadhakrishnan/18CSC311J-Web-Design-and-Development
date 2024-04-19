@@ -1,4 +1,4 @@
-myApp = angular.module('myApp',[])
+var myApp = angular.module('myApp',[]);
 
 myApp.controller('myCtrl',function($scope){
     $scope.users=[
@@ -16,6 +16,6 @@ myApp.controller('myCtrl',function($scope){
         $scope.curr = '';
         $scope.messages.push({text:userName,from:"user",direction:"user-msg"});
     };
-    
+    // $scope.u = $routeParams.username;
 }
 );

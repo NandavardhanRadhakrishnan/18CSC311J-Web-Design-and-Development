@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="registerApp" ng-controller="registerCtrl">
+    <div class="container">
+        <h2>Register</h2>
+        <form ng-submit="register()">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" ng-model="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" ng-model="password" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <div ng-show="error" class="error">{{error}}</div>
+    </div>
+
+    <!-- Include AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Include register controller -->
+    <script src="registerController.js"></script>
+</body>
+</html>
