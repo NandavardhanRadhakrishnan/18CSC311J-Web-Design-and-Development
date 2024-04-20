@@ -1,12 +1,12 @@
-var myApp = angular.module("myApp",["ngRoute"]);
+myApp = angular.module("myApp",["ngRoute"]);
 
 // TODO login path not working need to add .html at end, also page doesnt refresh automatically when routing need to refresh manually
 
 myApp.config(function($routeProvider,$locationProvider){
     $routeProvider
-    .when("/",{
-        templateUrl: "public/indexx.html",
-        controller: "chatController",
+    .when('/chat',{
+        templateUrl: "chat.html",
+        controller: "chatCtrl",
         resolve:{
             auth:function($location,AuthService){
                 if(!AuthService.isAuthenticated()){
@@ -17,18 +17,33 @@ myApp.config(function($routeProvider,$locationProvider){
     })
     .when('/login',{
         templateUrl: "login.html",
-        controller: "loginCtrl"
+        controller: "loginCtrl",
     })
     .when('/register',{
         templateUrl: "register.html",
         controller: "registerCtrl"
     })
-    // .otherwise({
-    //     redirectTo: '/'
-    // });
+    .otherwise({
+        redirectTo:'/login'
+    });
 
     $locationProvider.html5Mode(true);
 });
+
+// myApp.config(function($routeProvider){
+//     $routeProvider
+//     .when('/chat',{
+//         templateUrl: 'chat.html',
+//         controller:'loginCtrl'
+//     })
+    
+//     .when('/login',{
+//         templateUrl:'login.html',
+//         controller:'loginCtrl'
+//     })
+//     .otherwise({redirectTo:'/login'});
+// })
+
 
 myApp.service('AuthService',function($http, $q, $window){
 
@@ -81,15 +96,15 @@ myApp.controller('chatCtrl',function($scope,AuthService){
         $scope.messages.push({text:userName,from:"user",direction:"user-msg"});
     };
     $scope.u = "not logged in";
-    // $scope.u = AuthService.getCurrentUser().username;
+    $scope.u = AuthService.getCurrentUser().username;
 });
 
-myApp.controller('loginCtrl', function($scope, $location, AuthService) {
+myApp.controller('loginCtrl', function($scope, $window, AuthService) {
     $scope.login = function(username,password) {
       AuthService.login(username, password)
         .then(function(user) {
           // Redirect to index after successful login
-          $location.path('/index');
+          $window.location.href = '/chat';
         })
         .catch(function(error) {
           console.error(error);
@@ -106,7 +121,7 @@ myApp.controller('registerCtrl', function($scope, $http) {
             .then(function(response) {
                 // Successful registration
                 // alert(response.data.message);
-                $window.location.href = '/chat?username=' + $scope.username;
+                $window.location.href = '/chat';
                 // Redirect to another page or perform any other action after successful registration
             })
             .catch(function(error) {
