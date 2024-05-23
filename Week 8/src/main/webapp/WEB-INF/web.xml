@@ -9,6 +9,7 @@
 
 <servlet-mapping>
 	<servlet-name>gradeServlet</servlet-name>
-	<url-pattern>/gradeServlet</url-pattern></servlet-mapping>
+	<url-pattern>/gradeServlet</url-pattern>
+</servlet-mapping>
 
 </web-app>
